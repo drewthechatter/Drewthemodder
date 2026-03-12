@@ -40,15 +40,23 @@ h1{
   margin:10px 0 30px 0;
 }
 
+/* Link area layout */
 .links{
   display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
+  flex-direction: column;
+  align-items: center;
   gap:15px;
   margin-bottom:40px;
-  position:relative;
 }
 
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+/* Base Button Styling */
 .link-button{
   padding:12px 26px;
   border-radius:8px;
@@ -57,16 +65,69 @@ h1{
   font-weight:600;
   transition:transform .15s, box-shadow .15s, background .2s;
   box-shadow:var(--shadow);
-  cursor:pointer;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 16px;
 }
 
 .link-button:hover{
   transform:translateY(-2px);
 }
 
-.about{background:#e60000;}
-.about:hover{background:#b30000;}
+/* Sliding Menu Styling */
+.modeling-wrapper {
+  display: flex;
+  background: #e60000;
+  border-radius: 8px;
+  overflow: hidden;
+  max-width: 170px; /* Width of the main button */
+  transition: max-width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: var(--shadow);
+}
 
+.modeling-wrapper.active {
+  max-width: 500px; /* Expands to show sub-buttons */
+}
+
+.main-trigger {
+  background: #e60000;
+  white-space: nowrap;
+  padding: 12px 26px;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.sub-links-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 0px;
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+}
+
+.modeling-wrapper.active .sub-links-container {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+  padding: 0 15px;
+}
+
+.sub-btn {
+  background: rgba(255,255,255,0.2);
+  font-size: 13px;
+  padding: 8px 12px;
+  white-space: nowrap;
+}
+
+.sub-btn:hover {
+  background: rgba(255,255,255,0.3);
+}
+
+/* Static Button Colors */
 .modrinth{background:#4CAF50;}
 .modrinth:hover{background:#43a047;}
 
@@ -76,31 +137,7 @@ h1{
 .kofi{background:#29abe0;}
 .kofi:hover{background:#1d8bb8;}
 
-/* Sub-button bar */
-.sub-buttons{
-  display:none;
-  flex-direction:column;
-  margin-top:10px;
-  gap:10px;
-}
-
-.sub-buttons a{
-  background:#d32f2f;
-  padding:10px 20px;
-  border-radius:6px;
-  color:white;
-  text-decoration:none;
-  font-weight:500;
-  box-shadow:var(--shadow);
-  transition:transform .15s, box-shadow .15s, background .2s;
-}
-
-.sub-buttons a:hover{
-  transform:translateY(-2px);
-  background:#b71c1c;
-}
-
-/* Projects */
+/* Project Cards */
 .projects{
   display:flex;
   flex-direction:column;
@@ -143,6 +180,7 @@ footer{
 }
 </style>
 </head>
+
 <body>
 
 <div class="container">
@@ -154,33 +192,23 @@ alt="Drew Avatar">
 <h1>Visit DrewMakes</h1>
 
 <div class="links">
-
-<!-- 3D Modeling button -->
-<div style="display:flex; flex-direction:column; align-items:center;">
-  <a class="link-button about" id="modeling-btn">3D Modeling</a>
-  <div class="sub-buttons" id="modeling-sub">
-    <a href="https://www.makeronline.com/en/user/uploads/models/all.html" target="_blank" rel="noopener noreferrer">Maker Online Models</a>
-    <a href="https://makerworld.com/en/@Drewmakes./" target="_blank" rel="noopener noreferrer">MakerWorld Profile</a>
+  
+  <div class="modeling-wrapper" id="modelingMenu">
+    <button class="link-button main-trigger" onclick="toggleMenu()">
+      3D Modeling ▼
+    </button>
+    <div class="sub-links-container">
+      <a class="link-button sub-btn" href="https://www.makeronline.com/en/user/uploads/models/all.html" target="_blank">MakerOnline</a>
+      <a class="link-button sub-btn" href="https://makerworld.com/en/@Drewmakes./" target="_blank">MakerWorld</a>
+    </div>
   </div>
-</div>
 
-<a class="link-button modrinth"
-href="https://modrinth.com/user/Drewthemodder"
-target="_blank" rel="noopener noreferrer">
-Modrinth
-</a>
+  <div class="button-row">
+    <a class="link-button modrinth" href="https://modrinth.com/user/Drewthemodder" target="_blank" rel="noopener noreferrer">Modrinth</a>
+    <a class="link-button curseforge" href="https://www.curseforge.com/members/drewthemodder/projects" target="_blank" rel="noopener noreferrer">CurseForge</a>
+    <a class="link-button kofi" href="https://ko-fi.com/drew4242424" target="_blank" rel="noopener noreferrer">Ko-Fi</a>
+  </div>
 
-<a class="link-button curseforge"
-href="https://www.curseforge.com/members/drewthemodder/projects"
-target="_blank" rel="noopener noreferrer">
-CurseForge
-</a>
-
-<a class="link-button kofi"
-href="https://ko-fi.com/drew4242424"
-target="_blank" rel="noopener noreferrer">
-Ko-Fi
-</a>
 </div>
 
 <h2>Featured Projects</h2>
@@ -254,6 +282,22 @@ Made with ❤️ by Drew 🇳🇱
 </footer>
 
 </div>
+
+<script>
+// Toggle the sliding menu
+function toggleMenu() {
+  const menu = document.getElementById('modelingMenu');
+  menu.classList.toggle('active');
+}
+
+// Close the menu if the user clicks outside of it
+window.addEventListener('click', function(e) {
+  const menu = document.getElementById('modelingMenu');
+  if (!menu.contains(e.target)) {
+    menu.classList.remove('active');
+  }
+});
+</script>
 
 </body>
 </html>

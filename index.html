@@ -1,179 +1,233 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Drew's Links</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding: 50px;
-      background-color: #f9f9f9;
-      margin: 0;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Drew's Links</title>
 
-    img.avatar {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 20px;
-      border: 3px solid #4CAF50;
-    }
+<style>
 
-    h1 {
-      margin-bottom: 30px;
-    }
+:root{
+  --bg:#f5f5f5;
+  --card:#ffffff;
+  --shadow:0 4px 12px rgba(0,0,0,0.08);
+}
 
-    .link-button {
-      display: inline-block;
-      margin: 15px;
-      padding: 12px 25px;
-      font-size: 16px;
-      border-radius: 8px;
-      text-decoration: none;
-      color: white;
-      transition: background-color 0.3s ease;
-    }
+body{
+  font-family: Arial, sans-serif;
+  background:var(--bg);
+  margin:0;
+  padding:40px 20px;
+  display:flex;
+  justify-content:center;
+}
 
-    .about {
-      background-color: #e60000;
-    }
-    .about:hover {
-      background-color: #b30000;
-    }
+.container{
+  max-width:700px;
+  width:100%;
+  text-align:center;
+}
 
-    .modrinth { background-color: #4CAF50; }
-    .modrinth:hover { background-color: #45a049; }
+.avatar{
+  width:140px;
+  height:140px;
+  border-radius:50%;
+  object-fit:cover;
+  border:4px solid #4CAF50;
+  margin-bottom:20px;
+}
 
-    .curseforge { background-color: #FF8800; }
-    .curseforge:hover { background-color: #e67600; }
+h1{
+  margin:10px 0 30px 0;
+}
 
-    .patreon { background-color: #00BFFF; }
-    .patreon:hover { background-color: #0099cc; }
+.links{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:15px;
+  margin-bottom:40px;
+}
 
-    .projects {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 20px;
-      margin-top: 20px;
-    }
+.link-button{
+  padding:12px 26px;
+  border-radius:8px;
+  color:white;
+  text-decoration:none;
+  font-weight:600;
+  transition:transform .15s, box-shadow .15s, background .2s;
+  box-shadow:var(--shadow);
+}
 
-    .project-card {
-      display: flex;
-      align-items: center;
-      background-color: #eee;
-      border-radius: 10px;
-      padding: 10px 20px;
-      width: 300px;
-      text-decoration: none;
-      transition: background-color 0.2s ease;
-    }
+.link-button:hover{
+  transform:translateY(-2px);
+}
 
-    .project-card:hover { background-color: #ddd; }
+.about{background:#e60000;}
+.about:hover{background:#b30000;}
 
-    .project-card img {
-      width: 48px;
-      height: 48px;
-      border-radius: 8px;
-      margin-right: 15px;
-    }
+.modrinth{background:#4CAF50;}
+.modrinth:hover{background:#43a047;}
 
-    .project-card span {
-      font-size: 16px;
-      color: #333;
-    }
+.curseforge{background:#ff8800;}
+.curseforge:hover{background:#e67600;}
 
-    footer {
-      margin-top: 60px;
-      font-size: 14px;
-      color: #888;
-    }
-  </style>
+.kofi{background:#29abe0;}
+.kofi:hover{background:#1d8bb8;}
+
+.projects{
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+}
+
+.project-card{
+  display:flex;
+  align-items:center;
+  background:var(--card);
+  padding:12px 18px;
+  border-radius:12px;
+  text-decoration:none;
+  color:#333;
+  box-shadow:var(--shadow);
+  transition:transform .15s, box-shadow .15s;
+}
+
+.project-card:hover{
+  transform:translateY(-3px);
+  box-shadow:0 6px 18px rgba(0,0,0,0.12);
+}
+
+.project-card img{
+  width:48px;
+  height:48px;
+  border-radius:8px;
+  margin-right:16px;
+}
+
+.project-card span{
+  font-size:16px;
+  font-weight:500;
+}
+
+footer{
+  margin-top:50px;
+  color:#777;
+  font-size:14px;
+}
+
+</style>
 </head>
+
 <body>
 
-  <img class="avatar" src="https://cdn.discordapp.com/avatars/1119642162322231298/c347341505d62cc553345b699bd8e9cb.png?size=4096" alt="Drew's Avatar">
-  <h1>Visit DrewMakes</h1>
+<div class="container">
 
-  <!-- NEW red button -->
-  <a class="link-button about" href="https://makerworld.com/en/@Drewmakes./upload" target="_blank" aria-label="3D modeling">3D modeling</a>
+<img class="avatar"
+src="https://cdn.discordapp.com/avatars/1119642162322231298/c347341505d62cc553345b699bd8e9cb.png?size=4096"
+alt="Drew Avatar">
 
-  <a class="link-button modrinth" href="https://modrinth.com/user/Drewthemodder" target="_blank" aria-label="Modrinth Profile">Modrinth</a>
-  <a class="link-button curseforge" href="https://www.curseforge.com/members/drewthemodder/projects" target="_blank" aria-label="CurseForge Profile">CurseForge</a>
- <a class="link-button kofi"
+<h1>Visit DrewMakes</h1>
+
+<div class="links">
+
+<a class="link-button about"
+href="https://makerworld.com/en/@Drewmakes./upload"
+target="_blank" rel="noopener noreferrer">
+3D Modeling
+</a>
+
+<a class="link-button modrinth"
+href="https://modrinth.com/user/Drewthemodder"
+target="_blank" rel="noopener noreferrer">
+Modrinth
+</a>
+
+<a class="link-button curseforge"
+href="https://www.curseforge.com/members/drewthemodder/projects"
+target="_blank" rel="noopener noreferrer">
+CurseForge
+</a>
+
+<a class="link-button kofi"
 href="https://ko-fi.com/drew4242424"
-target="_blank" rel="noopener noreferrer">Ko-Fi</a>
+target="_blank" rel="noopener noreferrer">
+Ko-Fi
+</a>
 
-  <h2 style="margin-top: 60px;">Featured Projects</h2>
+</div>
 
-  <div class="projects">
-    <a class="project-card" href="https://modrinth.com/mod/copper-tools-and-armour" target="_blank">
-      <img src="https://cdn.modrinth.com/data/VQP2jDOh/6a3304e3cc931600978ddc9fac8220b9c237bea6_96.webp" alt="Copper Tools and Armour icon">
-      <span>Copper Tools and Armour</span>
-    </a>
+<h2>Featured Projects</h2>
 
-    <a class="project-card" href="https://modrinth.com/mod/amethyst" target="_blank">
-      <img src="https://cdn.modrinth.com/data/Lx8XYctR/a119cc888ca222f214482b500f79c4f496d46392_96.webp" alt="Amethyst tools and armour mod icon">
-      <span>Amethyst Tools and Armour</span>
-    </a>
+<div class="projects">
 
-    <a class="project-card" href="https://modrinth.com/mod/extra-recipes" target="_blank">
-      <img src="https://cdn.modrinth.com/data/yNwT9WTZ/8b2dd8808e4994572ce4cce28eea6a5ead4d0aa9_96.webp" alt="Extra Recipes mod icon">
-      <span>Extra Recipes</span>
-    </a>
+<a class="project-card" href="https://modrinth.com/mod/copper-tools-and-armour" target="_blank">
+<img src="https://cdn.modrinth.com/data/VQP2jDOh/6a3304e3cc931600978ddc9fac8220b9c237bea6_96.webp">
+<span>Copper Tools and Armour</span>
+</a>
 
-    <a class="project-card" href="https://modrinth.com/mod/valuable-stairs-slabs" target="_blank">
-      <img src="https://cdn.modrinth.com/data/rEOzP4iQ/91dfd1f701023ed6c937abeeca9fbe5ffa62f820_96.webp" alt="Valuable stairs and slabs mod icon">
-      <span>Valuable Stairs and Slabs</span>
-    </a>    
+<a class="project-card" href="https://modrinth.com/mod/amethyst" target="_blank">
+<img src="https://cdn.modrinth.com/data/Lx8XYctR/a119cc888ca222f214482b500f79c4f496d46392_96.webp">
+<span>Amethyst Tools and Armour</span>
+</a>
 
-    <a class="project-card" href="https://modrinth.com/mod/extra-stone" target="_blank">
-      <img src="https://cdn.modrinth.com/data/JOgOMnO2/8622c3cef69ec31a629ec1e0f06612b4e37e2c8b_96.webp" alt="Extra stone mod icon">
-      <span>Extra Stone</span>
-    </a>
+<a class="project-card" href="https://modrinth.com/mod/extra-recipes" target="_blank">
+<img src="https://cdn.modrinth.com/data/yNwT9WTZ/8b2dd8808e4994572ce4cce28eea6a5ead4d0aa9_96.webp">
+<span>Extra Recipes</span>
+</a>
 
-    <a class="project-card" href="https://modrinth.com/mod/nether-recipes" target="_blank">
-      <img src="https://cdn.modrinth.com/data/nDB6sHOj/c52f437032e0976ed3e41ba46577d3ab773a70fc_96.webp" alt="Nether recipes mod icon">
-      <span>Nether Recipes</span>
-    </a>
+<a class="project-card" href="https://modrinth.com/mod/valuable-stairs-slabs" target="_blank">
+<img src="https://cdn.modrinth.com/data/rEOzP4iQ/91dfd1f701023ed6c937abeeca9fbe5ffa62f820_96.webp">
+<span>Valuable Stairs and Slabs</span>
+</a>
 
-    <a class="project-card" href="https://modrinth.com/mod/modrinth-pizza" target="_blank">
-      <img src="https://cdn.modrinth.com/data/ST9KHXDU/8f6cbd13e422e236f1100a47f947411ebd112d16.png" alt="Modrinth pizza mod icon">
-      <span>Modrinth Pizza</span>
-    </a>
+<a class="project-card" href="https://modrinth.com/mod/extra-stone" target="_blank">
+<img src="https://cdn.modrinth.com/data/JOgOMnO2/8622c3cef69ec31a629ec1e0f06612b4e37e2c8b_96.webp">
+<span>Extra Stone</span>
+</a>
 
-    <a class="project-card" href="https://modrinth.com/mod/illusion-bedrock/moderation" target="_blank">
-      <img src="https://cdn.modrinth.com/data/HFZ8y1Gt/41ea132a4efc4e371d6afa27890359afa033d38e_96.webp" alt="Illusion bedrock mod icon">
-      <span>Illusion Bedrock</span>
-    </a>
+<a class="project-card" href="https://modrinth.com/mod/nether-recipes" target="_blank">
+<img src="https://cdn.modrinth.com/data/nDB6sHOj/c52f437032e0976ed3e41ba46577d3ab773a70fc_96.webp">
+<span>Nether Recipes</span>
+</a>
 
-    <a class="project-card" href="https://modrinth.com/mod/mythical_sword" target="_blank">
-      <img src="https://cdn.modrinth.com/data/WIiNnIWj/0f42d688b7c5bde175da520a68ea0ecaaf924f85.png" alt="Mythical sword mod icon">
-      <span>Mythical Sword</span>
-    </a>
+<a class="project-card" href="https://modrinth.com/mod/modrinth-pizza" target="_blank">
+<img src="https://cdn.modrinth.com/data/ST9KHXDU/8f6cbd13e422e236f1100a47f947411ebd112d16.png">
+<span>Modrinth Pizza</span>
+</a>
 
-    <a class="project-card" href="https://modrinth.com/mod/hard-corecraft-block" target="_blank">
-      <img src="https://cdn.modrinth.com/data/wy9WjHOL/a1476c0032d6d43c15b8e6973533958f7d14770f_96.webp" alt="Hardcore-craft block mod icon">
-      <span>Hardcorecraft Block</span>
-    </a>
+<a class="project-card" href="https://modrinth.com/mod/illusion-bedrock/moderation" target="_blank">
+<img src="https://cdn.modrinth.com/data/HFZ8y1Gt/41ea132a4efc4e371d6afa27890359afa033d38e_96.webp">
+<span>Illusion Bedrock</span>
+</a>
 
-    <a class="project-card" href="https://modrinth.com/mod/gigastudiosmod" target="_blank">
-      <img src="https://cdn.modrinth.com/data/Dn7tui49/03614566e610309d9420702bbaa9c9732303affe_96.webp" alt="Gigastudios mod icon">
-      <span>Gigastudios mod</span>
-    </a>
-    
-    <a class="project-card" href="https://modrinth.com/mod/emerald-tools-and-armour" target="_blank">
-      <img src="https://cdn.modrinth.com/data/9yUxSgGx/50f6fa28269a8d3f82bc144b7a56714fca7a8ffa_96.webp" alt="Emerald tools and armour icon">
-      <span>Emerald tools And armour</span>
-    </a>
-  </div>
+<a class="project-card" href="https://modrinth.com/mod/mythical_sword" target="_blank">
+<img src="https://cdn.modrinth.com/data/WIiNnIWj/0f42d688b7c5bde175da520a68ea0ecaaf924f85.png">
+<span>Mythical Sword</span>
+</a>
 
-  <footer>
-    Made with ❤️ by Drew 🇳🇱 | All rights reserved.
-  </footer>
+<a class="project-card" href="https://modrinth.com/mod/hard-corecraft-block" target="_blank">
+<img src="https://cdn.modrinth.com/data/wy9WjHOL/a1476c0032d6d43c15b8e6973533958f7d14770f_96.webp">
+<span>Hardcorecraft Block</span>
+</a>
+
+<a class="project-card" href="https://modrinth.com/mod/gigastudiosmod" target="_blank">
+<img src="https://cdn.modrinth.com/data/Dn7tui49/03614566e610309d9420702bbaa9c9732303affe_96.webp">
+<span>Gigastudios Mod</span>
+</a>
+
+<a class="project-card" href="https://modrinth.com/mod/emerald-tools-and-armour" target="_blank">
+<img src="https://cdn.modrinth.com/data/9yUxSgGx/50f6fa28269a8d3f82bc144b7a56714fca7a8ffa_96.webp">
+<span>Emerald Tools and Armour</span>
+</a>
+
+</div>
+
+<footer>
+Made with ❤️ by Drew 🇳🇱
+</footer>
+
+</div>
 
 </body>
 </html>

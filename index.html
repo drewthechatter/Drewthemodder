@@ -6,7 +6,6 @@
 <title>Drew's Links</title>
 
 <style>
-
 :root{
   --bg:#f5f5f5;
   --card:#ffffff;
@@ -47,6 +46,7 @@ h1{
   justify-content:center;
   gap:15px;
   margin-bottom:40px;
+  position:relative;
 }
 
 .link-button{
@@ -57,6 +57,7 @@ h1{
   font-weight:600;
   transition:transform .15s, box-shadow .15s, background .2s;
   box-shadow:var(--shadow);
+  cursor:pointer;
 }
 
 .link-button:hover{
@@ -75,6 +76,31 @@ h1{
 .kofi{background:#29abe0;}
 .kofi:hover{background:#1d8bb8;}
 
+/* Sub-button bar */
+.sub-buttons{
+  display:none;
+  flex-direction:column;
+  margin-top:10px;
+  gap:10px;
+}
+
+.sub-buttons a{
+  background:#d32f2f;
+  padding:10px 20px;
+  border-radius:6px;
+  color:white;
+  text-decoration:none;
+  font-weight:500;
+  box-shadow:var(--shadow);
+  transition:transform .15s, box-shadow .15s, background .2s;
+}
+
+.sub-buttons a:hover{
+  transform:translateY(-2px);
+  background:#b71c1c;
+}
+
+/* Projects */
 .projects{
   display:flex;
   flex-direction:column;
@@ -115,10 +141,8 @@ footer{
   color:#777;
   font-size:14px;
 }
-
 </style>
 </head>
-
 <body>
 
 <div class="container">
@@ -131,11 +155,14 @@ alt="Drew Avatar">
 
 <div class="links">
 
-<a class="link-button about"
-href="https://makerworld.com/en/@Drewmakes./upload"
-target="_blank" rel="noopener noreferrer">
-3D Modeling
-</a>
+<!-- 3D Modeling button -->
+<div style="display:flex; flex-direction:column; align-items:center;">
+  <a class="link-button about" id="modeling-btn">3D Modeling</a>
+  <div class="sub-buttons" id="modeling-sub">
+    <a href="https://www.makeronline.com/en/user/uploads/models/all.html" target="_blank" rel="noopener noreferrer">Maker Online Models</a>
+    <a href="https://makerworld.com/en/@Drewmakes./" target="_blank" rel="noopener noreferrer">MakerWorld Profile</a>
+  </div>
+</div>
 
 <a class="link-button modrinth"
 href="https://modrinth.com/user/Drewthemodder"
@@ -154,7 +181,6 @@ href="https://ko-fi.com/drew4242424"
 target="_blank" rel="noopener noreferrer">
 Ko-Fi
 </a>
-
 </div>
 
 <h2>Featured Projects</h2>

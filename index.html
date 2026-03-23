@@ -87,7 +87,7 @@ h1{
 }
 
 .modeling-wrapper.active {
-  max-width: 500px; /* Expands to show sub-buttons */
+  max-width: 600px; /* Increased to accommodate the 3rd button */
 }
 
 .main-trigger {
@@ -194,12 +194,13 @@ alt="Drew Avatar">
 <div class="links">
   
   <div class="modeling-wrapper" id="modelingMenu">
-    <button class="link-button main-trigger" onclick="toggleMenu()">
+    <button class="link-button main-trigger" onclick="toggleMenu(event)">
       3D Modeling →
     </button>
     <div class="sub-links-container">
       <a class="link-button sub-btn" href="https://www.makeronline.com/en/user/uploads/models/all.html" target="_blank">MakerOnline</a>
       <a class="link-button sub-btn" href="https://makerworld.com/en/@Drewmakes./" target="_blank">MakerWorld</a>
+      <a class="link-button sub-btn" href="https://www.nexprint.com/en/U0030885872/home" target="_blank">NexPrint</a>
     </div>
   </div>
 
@@ -285,7 +286,8 @@ Made with ❤️ by Drew 🇳🇱
 
 <script>
 // Toggle the sliding menu
-function toggleMenu() {
+function toggleMenu(event) {
+  event.stopPropagation(); // Prevents the window click listener from immediately closing it
   const menu = document.getElementById('modelingMenu');
   menu.classList.toggle('active');
 }
